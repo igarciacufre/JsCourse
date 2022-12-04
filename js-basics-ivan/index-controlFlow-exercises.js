@@ -150,7 +150,8 @@ function calculateGrade(marks) {
   }
   let avg = sum / amount;
 
-  if (avg < 50) if (avg < 70) return "F";
+  if (avg < 50) 
+    if (avg < 70) return "F";
   if (avg < 80) return "D";
   if (avg < 90) return "C";
   if (avg < 101) return "A";

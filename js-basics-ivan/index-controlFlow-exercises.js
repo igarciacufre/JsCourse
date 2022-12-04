@@ -20,7 +20,7 @@ function isLandscape(width, height) {
 
 console.log(result2);
 
-console.log("-----------------");
+console.log("-----------------"); 
 //EXERCISE FIZZBUZZ: 
 // Divisible by 3 -> Fizz
 // Divisible by 5 -> Buzz

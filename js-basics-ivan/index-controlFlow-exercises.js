@@ -34,7 +34,9 @@ console.log(output);
 function fizzbuzz(input) {
     if (typeof input !== 'number') return NaN;
     if ((input % 3 === 0) && (input % 5 === 0)) return "FizzBuzz";
-    else if (input % 3 === 0) return "Fizz";
+    else if (input % 3 === 0)
+
+        return "Fizz";
     else if (input % 5 === 0) return "Buzz";
     return input;
 
@@ -118,7 +120,7 @@ console.log("-----------------");
 
 const limit = 10;
 
-sum(limit,3,5);
+sum(limit, 3, 5);
 
 function sum(limit, multi1, multi2) {
     let multiplo = 0;
@@ -141,23 +143,23 @@ console.log("-----------------");
 // B -> 80 - 89
 // A -> 90 - 100
 
-const marks = [80 , 80 , 70]
+const marks = [80, 80, 70]
 
 calculateGrade(marks)
 
 function calculateGrade(marks) {
     let amount = marks.length;
     let sum = 0;
-    
+
     for (let mark of marks) {
         sum += mark;
     }
     let avg = sum / amount;
 
     if (avg < )
-    if (avg < 70) return 'F'
+        if (avg < 70) return 'F'
     if (avg < 80) return 'D'
     if (avg < 90) return 'C'
     if (avg < 101) return 'A'
-    return console.log(avg); 
+    return console.log(avg);
 }

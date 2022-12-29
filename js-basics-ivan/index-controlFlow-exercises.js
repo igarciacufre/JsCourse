@@ -150,7 +150,7 @@ function calculateGrade(marks) {
   }
   let avg = sum / amount;
 
-  if (avg < 50) 
+  if (avg < 50)
     if (avg < 70) return "F";
   if (avg < 80) return "D";
   if (avg < 90) return "C";
@@ -158,3 +158,35 @@ function calculateGrade(marks) {
   return console.log(avg);
 }
 
+console.log("-----------------");
+//Exercise showStarts  -> log the amount of starts according to the parameters, if 1 then *, if 2 then * **... and so on..
+
+showStars(6);
+
+function showStars(rows) {
+  let stars = "";
+  if (rows > 0) {
+      for (let i = 0; i < rows; i++) {
+        stars = stars+'*';
+        console.log(stars);
+      }
+  }
+}
+
+console.log("-----------------");
+//Exercise show primes numbers from 1 to the parameter
+
+showPrimes(16);
+
+function showPrimes(limit){
+  for (let i = 2; i <= limit ; i++){
+    if (isPrimeNumber(i)) console.log(i);
+  }
+}
+
+function isPrimeNumber (number){
+  for (let factor = 2; factor < number ; factor++) 
+    if ( number % factor === 0) return false;
+    
+  return true;
+}

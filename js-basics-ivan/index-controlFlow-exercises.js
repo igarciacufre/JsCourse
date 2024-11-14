@@ -190,3 +190,118 @@ function isPrimeNumber (number){
     
   return true;
 }
+
+
+
+
+/////////////////////////////////////////// EXCERSICES 13-11-2024
+
+console.log("----------------- biggerNumber");
+// bigger number excercise
+function biggerNumber(a,b) {
+  if (a == b) return a + " and " + b +" numbers are equal";
+  return a > b ? a : b;
+}
+
+console.log(biggerNumber(9,9));
+
+
+console.log("----------------- isLandscape");
+// isLandscape? if width is bigger than height
+
+function isLandscape (width, height) {
+  return width > height;
+}
+
+console.log(isLandscape(80,30));
+
+
+console.log("----------------- fizzBuzz");
+
+/* fizzBuzz algorithm: 
+ if the number is: 
+ - divisible by 3 -> return Fizz 
+ - divisible by 5 -> return Buzz
+ - divisible by 3 and 5 -> return FizzBuzz
+ - not divisible -> return same input
+ - if not a number -> return "not a number"
+ */
+
+function FizzBuzz (number) {
+  if (typeof number !== 'number' ) return NaN; 
+  if ((number % 3) == 0 && (number % 5 == 0)) return 'FizzBuzz';
+  else if ((number % 3) == 0) return 'Fizz';
+  else if ((number % 5) == 0) return 'Buzz';
+  else return number;
+}
+
+console.log(FizzBuzz(7));
+
+console.log("----------------- checkSpeed");
+
+/*check speed:
+ Speed Limit: 70
+ Every 5km -> 1 point 
+ if gets more than 12 points  -> return: License Suspended
+*/
+
+function checkSpeed (speed) {
+  const speedLimit = 70;
+  const kmPerPoint = 5; 
+    if (Math.floor(speed) < speedLimit + kmPerPoint) return "OK"
+    let exceed = speed - 70;
+    let points = Math.floor(exceed/kmPerPoint);
+    if (points < 12) return "points: " + points;
+    else return "License suspended";
+}
+console.log(checkSpeed(129));
+
+
+console.log("----------------- showNumbers");
+
+/*Show numbers: show the numbers from 0 to the number setted and show if all the numbers are odd or even
+*/
+
+function showNumbers(limit){
+  let msj = "";
+  for (let i = 0; i<= limit; i++){
+    msj = (i % 2 == 0) ? "EVEN" : "ODD";
+    console.log (i, msj);
+  }
+}
+showNumbers(10);
+
+console.log("----------------- countTruthy2");
+
+/*count truthy
+*/
+
+const array2 = [0,1,2,3,'value',''];
+
+function countTruthy2 (array2) {
+  let count = 0;
+  for (let value of array2) {
+    if (value) count ++;
+  }
+  return count;
+}
+console.log("amount of truthy",countTruthy2 (array2));
+
+console.log("----------------- showProperties2");
+
+/*Show properties of an object
+*/
+const obj2 = {
+  title: 'a',
+  releaseYear: 2020,
+  rating: 4.5,
+  director: 'b'
+};
+
+function showProperties2 (obj2) {
+  for (let prop in obj2){
+    console.log(prop, obj2[prop],);
+  }
+  console.log(obj2.title);
+}
+showProperties2(obj2);

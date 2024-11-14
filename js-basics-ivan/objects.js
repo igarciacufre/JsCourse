@@ -63,11 +63,11 @@ delete house.build;
 
 console.log(house);
 
-console.log('for function in house: ')
+console.log('for function in house: ');
 for (let key in house){
     console.log(key, house[key]);
 }
-console.log('--------------------------------------')
+console.log('--------------------------------------');
 
 
 //-------------------------------------
@@ -87,3 +87,24 @@ function increase (obj){
 }
 increase(obj);
 console.log(obj); //that will show 11
+
+
+
+//----------------------------EJERCICIOS
+//-------------------addressObject
+
+console.log('-------------------------------------- addressObject');
+
+const address2 = {
+    street: 'calle 123',
+    city: 'ciudad lala',
+    zipCode: 20394
+}
+
+function showAddress2 (address2) {
+    for (let value in address2) {
+        console.log(value,address2[value]);
+    }
+}
+showAddress2(address2);
+

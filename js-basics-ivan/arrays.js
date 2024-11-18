@@ -105,3 +105,124 @@ while(num2.length >0)
 
 console.log('--------------CONCAT ARRAY');
 
+let one = [1,2,3];
+let two = [4,5,6];
+
+let combined = one.concat(two);
+console.log('array one and two: ', combined);
+
+console.log('--------------SLICE ARRAY:');
+
+console.log('--------------SLICE the same array starting at 2 and finished at 4');
+
+let slice = combined.slice(2,4);
+console.log('slice the same array starting at 2 and finished at 4:',slice);
+
+//we can also slice from the beginning until the end: 
+let slicedFrom2 = combined.slice(2);
+console.log(slicedFrom2);
+
+console.log('--------------SPREAD ARRAY: is an advanced but clearer way to combine the arrays');
+//an example of concat: 
+
+let spread = [...one,...two];
+console.log('new array combining one and two, using spread: ', spread);
+
+//it is also easy to concat or to add things in the middle: 
+spread = [...one,'a','b',...two];
+console.log(spread);
+
+
+//------------iteration in Array: forEach: 
+console.log('--------------Iteration using foreach');
+
+num = [1,2,3,4,5];
+num.forEach(number => {
+    console.log(number);
+});
+
+//Joining Arrays. it will return a string with the separator chosen in the parameter
+
+console.log('--------------Join arrays. ');
+let joined = num.join(',');
+console.log('String returned using "," as separator:', joined);
+
+//from string to an array:
+
+let message = 'This is my first message';
+let parts = message.split(' '); 
+let string = parts.join('-');
+console.log('string: ',message,' / array using split: ',parts, '/ string using join from the new array: ', string);
+
+
+//SORT AN ARRAY: sort method
+console.log('--------------Sort array  with numbers or string');
+
+num = [3,6,8,2];
+console.log('unsorted array: ', num);
+let sorted = num.sort();
+console.log('Sorted: ', sorted);
+let reversed = num.reverse();
+console.log('Reversed: ', reversed);
+
+
+console.log('--------------Sort array  with objects');
+
+let study = [
+    { id: 1, name: 'Node.js'},
+    { id: 2, name: 'JavaScript'},
+    { id: 3, name: 'Angular'}
+];
+
+study.sort(function (a,b) {
+    // a < b => -1
+    // a > b => 1
+    // a === b => 0
+
+    let nameA = a.name.toUpperCase();
+    let nameB = b.name.toUpperCase()
+    if (nameA < nameB) return -1;
+    if (nameA > nameB) return 1;
+    return 0; 
+});
+ 
+console.log(study);
+
+//-------------------- EVERY and SUM
+console.log('--------------EVERY and SOME');
+
+num = [3,6,-8,2];
+
+let allPositive = num.every(number => number >= 0);
+
+console.log('every: Function all possitives: ', allPositive);
+
+let atleastNegative = num.some(number => number < 0);
+console.log('some: Function at least one is negative: ', atleastNegative);
+
+//-------------------- filtered: will return a new Array with only the values that pass the condition
+
+let onlyPositives = num.filter (value => value >= 0);
+console.log('array: ', num, '/ array filtered with only possitives: ', onlyPositives);
+
+//-------------------- MAP Method: we can go through all the array and change the values:
+
+num2 = [1,-1,2,3,4];
+
+let positives = num2.filter(number => number >= 0);
+
+let items = positives.map(n => '<li>' + n + '</li>');
+console.log('array: ', positives);
+console.log('we will change the value of the array to show them in a list: ', items);
+
+const html = '<ul>'+ items.join('') + '</ul>';
+console.log(html);
+
+
+//if we want to retutn objects we can do it in a way of doing chaining:
+
+let objs = num2
+    .filter(n => n >= 0)
+    .map(n => ({ id: n}));
+
+console.log('array with objects from the num array only with positive numbers: ', objs);

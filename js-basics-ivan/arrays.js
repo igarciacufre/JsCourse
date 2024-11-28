@@ -226,3 +226,15 @@ let objs = num2
     .map(n => ({ id: n}));
 
 console.log('array with objects from the num array only with positive numbers: ', objs);
+
+
+//reduce value
+console.log('--------------REDUCE FUNCTION');
+
+num2 = [1,-1,2,3,4];
+
+let sum = num2.reduce((accumulator, currentValue) => {
+    return accumulator + currentValue;
+}, 0);
+
+console.log('SUM all the values of the array using function reduce: ', sum);

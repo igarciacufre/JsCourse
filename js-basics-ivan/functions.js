@@ -48,3 +48,81 @@ function discount(discount, ...prices){
     return total * (1-discount);
 }
 console.log(discount(0.1, 10,20,20));
+
+console.log('----------------------- Getters and setters');
+
+const person = {
+    firstName: 'Ivan',
+    lastName: 'Garcia',
+
+    get fullName() {
+        return '${person.firstName} ${person.lastName}' 
+    },
+    set fullName (value) {
+        if (typeof value !== 'string')
+            throw new Error ('Value is not String');
+
+        const fullName = value.split(' ');
+        if (fullName.length != 2)
+            throw new Error('Enter First and Last Name');
+        this.firstName = fullName[0];
+        this.lastName = fullName[1];
+    }
+};
+try {
+    person.fullName= 'John Smith';
+}
+catch (e){
+    alert(e);
+}
+console.log(person);
+
+//THIS keyword: and how to use it:
+
+//method -> Obj
+//function -> global (window, global)
+
+
+console.log('----------------------- This method:');
+//we want to show the title, in each tag.
+//this is not very recommended.
+const video = {
+    title: 'a',
+    tags: ['a','b','c'],
+    showTags() {
+        this.tags.forEach(function(tag){
+            console.log(this.title, tag);
+        }, this); //the parameter "this" here, let me use the "this" to mention the title that is from the function.
+    }
+}
+
+video.showTags();
+
+//call method
+console.log('----------------------- Different ways to change the value of THIS:');
+
+
+function playVideo(){
+    console.log(this);
+}
+//playVideo(); //window Object
+console.log('---- Call method:');
+playVideo.call({ name: 'call: Ivan'});
+console.log('---- Apply method:');
+playVideo.apply({ name: 'apply: Ivan'});
+console.log('---- Bind: method:');
+playVideo.bind({ name: 'Bind: Ivan'})();
+
+
+
+console.log('----------------------- Using the arrow method, we can reach the same value:');
+const videoArrow = {
+    title: 'a',
+    tags: ['a','b','c'],
+    showTags() {
+        this.tags.forEach(tag => {
+            console.log(this.title, tag);
+        });
+    }
+}
+videoArrow.showTags();
